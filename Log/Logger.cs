@@ -7,13 +7,13 @@ using System.Text;
 
 namespace A15_Ex02_BenGalili_039711056_AmitPaz_040305179.Log
 {
-    public sealed class Logger : ILogger
+    public class Logger : ILogger
     {
         private static ILogger s_ILogger = null;
 
         private Logger()
         {
-            s_ILogger = LoggerFactory.CreateLogger();
+            s_ILogger = CreateLogger();
         }
 
         public static Logger Instance
@@ -54,25 +54,47 @@ namespace A15_Ex02_BenGalili_039711056_AmitPaz_040305179.Log
             s_ILogger.LogError(message, list);
         }
 
-        internal class LoggerFactory
+        protected static ILogger CreateLogger()
         {
-            internal static ILogger CreateLogger()
+            ILogger logger = null;
+            string loggerType = ConfigurationManager.AppSettings["LogClassID"];
+            switch (loggerType)
             {
-                ILogger logger = null;
-                string loggerType = ConfigurationManager.AppSettings["LogClassID"];
-                switch (loggerType)
-                {
-                    case "TxtFileLogger":
-                        logger = TxtFileLogger.Instance;
-                        break;
-                    case "EventLogger":
-                        logger = EventLogger.Instance;
-                        break;
-                }
-
-                return logger;
+                case "TxtFileLogger":
+                    logger = TxtFileLogger.Instance;
+                    break;
+                case "EventLogger":
+                    logger = EventLogger.Instance;
+                    break;
             }
 
+            return logger;
         }
+
+        
+        
+        
+        
+        
+        //internal class LoggerFactory
+        //{
+        //    internal static ILogger CreateLogger()
+        //    {
+        //        ILogger logger = null;
+        //        string loggerType = ConfigurationManager.AppSettings["LogClassID"];
+        //        switch (loggerType)
+        //        {
+        //            case "TxtFileLogger":
+        //                logger = TxtFileLogger.Instance;
+        //                break;
+        //            case "EventLogger":
+        //                logger = EventLogger.Instance;
+        //                break;
+        //        }
+
+        //        return logger;
+        //    }
+
+        //}
     }
 }
