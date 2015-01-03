@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using A15_Ex02_BenGalili_039711056_AmitPaz_040305179.Log;
 using FacebookWrapper;
 using FacebookWrapper.ObjectModel;
 
@@ -20,7 +21,7 @@ namespace A15_Ex02_BenGalili_039711056_AmitPaz_040305179
             // change to desire limit - limit too high will cause long wait every time the user go to FB server
             // 50 is reasonable
             FacebookService.s_CollectionLimit = 200;
-            
+
             LoginResult result;
             string autologin = ConfigurationManager.AppSettings["autologin"];
 
@@ -28,6 +29,7 @@ namespace A15_Ex02_BenGalili_039711056_AmitPaz_040305179
             {
                 string acessToken = ConfigurationManager.AppSettings["token"];
                 result = FacebookService.Connect(acessToken);
+
             }
             else
             {
@@ -38,6 +40,9 @@ namespace A15_Ex02_BenGalili_039711056_AmitPaz_040305179
             {
                 LoggedInUser = result.LoggedInUser;
                 Token = result.AccessToken;
+
+                Logger.Instance.LogInfo("Logged with account: {0}", result.LoggedInUser.UserName);
+
             }
             else
             {
@@ -114,6 +119,6 @@ namespace A15_Ex02_BenGalili_039711056_AmitPaz_040305179
             }
 
             return resEventsList;
-        }      
+        }
     }
 }

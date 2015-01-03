@@ -39,7 +39,7 @@ namespace A15_Ex02_BenGalili_039711056_AmitPaz_040305179.Log
         /// </summary>
         /// <param name="message"></param>
         /// <param name="list"></param>
-        public void LogWarning(string message, params object[] list) 
+        public void LogWarning(string message, params object[] list)
         {
             s_ILogger.LogWarning(message, list);
         }
@@ -71,30 +71,5 @@ namespace A15_Ex02_BenGalili_039711056_AmitPaz_040305179.Log
             return logger;
         }
 
-        
-        
-        
-        
-        
-        //internal class LoggerFactory
-        //{
-        //    internal static ILogger CreateLogger()
-        //    {
-        //        ILogger logger = null;
-        //        string loggerType = ConfigurationManager.AppSettings["LogClassID"];
-        //        switch (loggerType)
-        //        {
-        //            case "TxtFileLogger":
-        //                logger = TxtFileLogger.Instance;
-        //                break;
-        //            case "EventLogger":
-        //                logger = EventLogger.Instance;
-        //                break;
-        //        }
-
-        //        return logger;
-        //    }
-
-        //}
     }
 }

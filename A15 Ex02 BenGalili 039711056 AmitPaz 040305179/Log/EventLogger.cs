@@ -23,13 +23,13 @@ namespace A15_Ex02_BenGalili_039711056_AmitPaz_040305179.Log
             }
         }
 
-        public void LogInfo(string message, params object[] list) 
+        public void LogInfo(string message, params object[] list)
         {
             string text = string.Format(message, list);
             ELogger.WriteEntry(text, EventLogEntryType.Information);
         }
 
-        public void LogWarning(string message, params object[] list) 
+        public void LogWarning(string message, params object[] list)
         {
             string text = string.Format(message, list);
             ELogger.WriteEntry(text, EventLogEntryType.Warning);

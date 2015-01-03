@@ -1,0 +1,20 @@
+C:\Users\ben galili\Desktop\לימודים\design patterns\ex02\bin\Debug\A15 Ex01 BenGalili 039711056 AmitPaz 040305179.exe.config
+C:\Users\ben galili\Desktop\לימודים\design patterns\ex02\bin\Debug\A15 Ex01 BenGalili 039711056 AmitPaz 040305179.exe
+C:\Users\ben galili\Desktop\לימודים\design patterns\ex02\bin\Debug\A15 Ex01 BenGalili 039711056 AmitPaz 040305179.pdb
+C:\Users\ben galili\Desktop\לימודים\design patterns\ex02\bin\Debug\Facebook.dll
+C:\Users\ben galili\Desktop\לימודים\design patterns\ex02\bin\Debug\FbGraphApiWrapper.dll
+C:\Users\ben galili\Desktop\לימודים\design patterns\ex02\obj\Debug\A15 Ex02 BenGalili 039711056 AmitPaz 040305179.csprojResolveAssemblyReference.cache
+C:\Users\ben galili\Desktop\לימודים\design patterns\ex02\obj\Debug\A15_Ex02_BenGalili_039711056_AmitPaz_040305179.FormMain.resources
+C:\Users\ben galili\Desktop\לימודים\design patterns\ex02\obj\Debug\A15_Ex02_BenGalili_039711056_AmitPaz_040305179.Properties.Resources.resources
+C:\Users\ben galili\Desktop\לימודים\design patterns\ex02\obj\Debug\A15 Ex02 BenGalili 039711056 AmitPaz 040305179.csproj.GenerateResource.Cache
+C:\Users\ben galili\Desktop\לימודים\design patterns\ex02\obj\Debug\A15 Ex01 BenGalili 039711056 AmitPaz 040305179.exe
+C:\Users\ben galili\Desktop\לימודים\design patterns\ex02\obj\Debug\A15 Ex01 BenGalili 039711056 AmitPaz 040305179.pdb
+C:\Users\ben galili\Desktop\לימודים\design patterns\ex02\A15 Ex02 BenGalili 039711056 AmitPaz 040305179\bin\Debug\A15 Ex01 BenGalili 039711056 AmitPaz 040305179.exe.config
+C:\Users\ben galili\Desktop\לימודים\design patterns\ex02\A15 Ex02 BenGalili 039711056 AmitPaz 040305179\obj\Debug\A15 Ex01 BenGalili 039711056 AmitPaz 040305179.exe
+C:\Users\ben galili\Desktop\לימודים\design patterns\ex02\A15 Ex02 BenGalili 039711056 AmitPaz 040305179\obj\Debug\A15 Ex01 BenGalili 039711056 AmitPaz 040305179.pdb
+C:\Users\ben galili\Desktop\לימודים\design patterns\ex02\A15 Ex02 BenGalili 039711056 AmitPaz 040305179\bin\Debug\A15 Ex01 BenGalili 039711056 AmitPaz 040305179.exe
+C:\Users\ben galili\Desktop\לימודים\design patterns\ex02\A15 Ex02 BenGalili 039711056 AmitPaz 040305179\bin\Debug\A15 Ex01 BenGalili 039711056 AmitPaz 040305179.pdb
+C:\Users\ben galili\Desktop\לימודים\design patterns\ex02\A15 Ex02 BenGalili 039711056 AmitPaz 040305179\obj\Debug\A15 Ex02 BenGalili 039711056 AmitPaz 040305179.csprojResolveAssemblyReference.cache
+C:\Users\ben galili\Desktop\לימודים\design patterns\ex02\A15 Ex02 BenGalili 039711056 AmitPaz 040305179\obj\Debug\A15_Ex02_BenGalili_039711056_AmitPaz_040305179.FormMain.resources
+C:\Users\ben galili\Desktop\לימודים\design patterns\ex02\A15 Ex02 BenGalili 039711056 AmitPaz 040305179\obj\Debug\A15_Ex02_BenGalili_039711056_AmitPaz_040305179.Properties.Resources.resources
+C:\Users\ben galili\Desktop\לימודים\design patterns\ex02\A15 Ex02 BenGalili 039711056 AmitPaz 040305179\obj\Debug\A15 Ex02 BenGalili 039711056 AmitPaz 040305179.csproj.GenerateResource.Cache

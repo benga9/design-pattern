@@ -20,26 +20,50 @@ namespace A15_Ex02_BenGalili_039711056_AmitPaz_040305179
         private readonly string[] r_Permission = { "user_about_me", "publish_actions", "user_friends", "friends_about_me", "friends_events", "publish_stream", "user_events", "read_stream", "user_status", "rsvp_event" };
 
         public ViewModel ViewModel { get; set; }
-                
+
         public FormMain()
         {
             InitializeComponent();
             ViewModel = new ViewModel();
-            Logger.Instance.LogInfo("App Init", "");
+            Logger.Instance.LogInfo("App Init");
         }
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
-            if (ViewModel.LoginSuccess(r_AppId, r_Permission))
+            try
             {
-                fetchUserInfo();
-                Logger.Instance.LogInfo("LoggedIn", "");
+
+                bool IsloggedIn = ViewModel.LoginSuccess(r_AppId, r_Permission);
+
+                if (IsloggedIn)
+                {
+                    fetchUserInfo();
+                    Logger.Instance.LogInfo("LoggedIn");
+                }
+                else
+                {
+                    MessageBox.Show("Could not Login");
+                }
             }
-            else
+
+            catch (Facebook.FacebookOAuthException ex)
             {
-                MessageBox.Show("Could not Login");
-                Logger.Instance.LogError("Could not Login", "");
+                string msg = "Error attempting to login with saved token";
+
+                Logger.Instance.LogError(msg);
+                MessageBox.Show(msg);
+
             }
+
+            catch (Exception ex)
+            {
+                string msg = "Error attempting to login";
+
+                Logger.Instance.LogError(msg);
+                MessageBox.Show(msg);
+
+            }
+
         }
 
         private void fetchUserInfo()
@@ -63,26 +87,26 @@ namespace A15_Ex02_BenGalili_039711056_AmitPaz_040305179
         {
             var allFeeds = ViewModel.LoggedInUser.NewsFeed;
             listBoxNewsFeed.Invoke(new Action(
-                () => 
+                () =>
+                {
+                    foreach (Post post in allFeeds)
                     {
-                        foreach (Post post in allFeeds)
+                        if (post.Message != null)
                         {
-                            if (post.Message != null)
-                            {
-                                listBoxNewsFeed.Items.Add(post.Message);
-                            }
-                            else if (post.Caption != null)
-                            {
-                                listBoxNewsFeed.Items.Add(post.Caption);
-                            }
-                            else
-                            {
-                                listBoxNewsFeed.Items.Add(string.Format("[{0}]", post.Type));
-                            }
+                            listBoxNewsFeed.Items.Add(post.Message);
+                        }
+                        else if (post.Caption != null)
+                        {
+                            listBoxNewsFeed.Items.Add(post.Caption);
+                        }
+                        else
+                        {
+                            listBoxNewsFeed.Items.Add(string.Format("[{0}]", post.Type));
                         }
                     }
+                }
                                             )
-                                    ); 
+                                    );
         }
 
         private void linkFriends_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -150,8 +174,8 @@ namespace A15_Ex02_BenGalili_039711056_AmitPaz_040305179
 
         private void labelEvents_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            listBoxEvents.Items.Clear();
-            listBoxEvents.Items.AddRange(ViewModel.GetUserEvents(ViewModel.LoggedInUser).ToArray());
+            //listBoxEvents.Items.Clear();
+            this.eventBindingSource.DataSource = ViewModel.GetUserEvents(ViewModel.LoggedInUser);
         }
 
         private void listBoxEvents_SelectedIndexChanged(object sender, EventArgs e)
@@ -159,7 +183,7 @@ namespace A15_Ex02_BenGalili_039711056_AmitPaz_040305179
             if (listBoxEvents.SelectedItems.Count == 1)
             {
                 Event selectedEvent = listBoxEvents.SelectedItem as Event;
-                pictureBoxEvent.LoadAsync(selectedEvent.PictureNormalURL);
+
             }
         }
 
@@ -211,7 +235,7 @@ namespace A15_Ex02_BenGalili_039711056_AmitPaz_040305179
 
             List<ListViewItem> resEventList = ViewModel.GetFriendsEvent(textBoxFriendsEventFilter.Text);
 
-            listFriendsEventsFiltered.Items.AddRange(resEventList.ToArray());  
+            listFriendsEventsFiltered.Items.AddRange(resEventList.ToArray());
         }
 
         private void listFriendsEventsFiltered_SelectedIndexChanged(object sender, EventArgs e)

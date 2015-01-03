@@ -29,13 +29,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.buttonLogin = new System.Windows.Forms.Button();
             this.picture_smallPictureBox = new System.Windows.Forms.PictureBox();
             this.labelName = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabBasicFeatues = new System.Windows.Forms.TabPage();
+            this.imageNormalPictureBox = new System.Windows.Forms.PictureBox();
+            this.eventBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.labelEvents = new System.Windows.Forms.LinkLabel();
-            this.pictureBoxEvent = new System.Windows.Forms.PictureBox();
             this.listBoxEvents = new System.Windows.Forms.ListBox();
             this.linkCheckins = new System.Windows.Forms.LinkLabel();
             this.listBoxCheckins = new System.Windows.Forms.ListBox();
@@ -72,10 +74,15 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.nameTextBox = new System.Windows.Forms.TextBox();
+            this.startTimeDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.nameTextBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.picture_smallPictureBox)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabBasicFeatues.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEvent)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imageNormalPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eventBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFriend)).BeginInit();
             this.tabFriendStatusFilter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStatusOwner)).BeginInit();
@@ -83,12 +90,13 @@
             this.groupBoxEventDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEventOfFriend)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGoingFriend)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonLogin
             // 
             this.buttonLogin.Location = new System.Drawing.Point(23, 11);
-            this.buttonLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonLogin.Margin = new System.Windows.Forms.Padding(2);
             this.buttonLogin.Name = "buttonLogin";
             this.buttonLogin.Size = new System.Drawing.Size(87, 32);
             this.buttonLogin.TabIndex = 0;
@@ -99,7 +107,7 @@
             // picture_smallPictureBox
             // 
             this.picture_smallPictureBox.Location = new System.Drawing.Point(10, 47);
-            this.picture_smallPictureBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picture_smallPictureBox.Margin = new System.Windows.Forms.Padding(2);
             this.picture_smallPictureBox.Name = "picture_smallPictureBox";
             this.picture_smallPictureBox.Size = new System.Drawing.Size(115, 102);
             this.picture_smallPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -122,7 +130,7 @@
             this.tabControl1.Controls.Add(this.tabFriendStatusFilter);
             this.tabControl1.Controls.Add(this.tabFriendsEvent);
             this.tabControl1.Location = new System.Drawing.Point(127, 11);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(658, 639);
@@ -130,8 +138,9 @@
             // 
             // tabBasicFeatues
             // 
+            this.tabBasicFeatues.AutoScroll = true;
+            this.tabBasicFeatues.Controls.Add(this.groupBox1);
             this.tabBasicFeatues.Controls.Add(this.labelEvents);
-            this.tabBasicFeatues.Controls.Add(this.pictureBoxEvent);
             this.tabBasicFeatues.Controls.Add(this.listBoxEvents);
             this.tabBasicFeatues.Controls.Add(this.linkCheckins);
             this.tabBasicFeatues.Controls.Add(this.listBoxCheckins);
@@ -144,13 +153,26 @@
             this.tabBasicFeatues.Controls.Add(this.textBoxStatus);
             this.tabBasicFeatues.Controls.Add(this.labelPostStatus);
             this.tabBasicFeatues.Location = new System.Drawing.Point(4, 22);
-            this.tabBasicFeatues.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabBasicFeatues.Margin = new System.Windows.Forms.Padding(2);
             this.tabBasicFeatues.Name = "tabBasicFeatues";
-            this.tabBasicFeatues.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabBasicFeatues.Padding = new System.Windows.Forms.Padding(2);
             this.tabBasicFeatues.Size = new System.Drawing.Size(650, 613);
             this.tabBasicFeatues.TabIndex = 0;
             this.tabBasicFeatues.Text = "Basic Featues";
             this.tabBasicFeatues.UseVisualStyleBackColor = true;
+            // 
+            // imageNormalPictureBox
+            // 
+            this.imageNormalPictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.eventBindingSource, "ImageNormal", true));
+            this.imageNormalPictureBox.Location = new System.Drawing.Point(6, 19);
+            this.imageNormalPictureBox.Name = "imageNormalPictureBox";
+            this.imageNormalPictureBox.Size = new System.Drawing.Size(63, 58);
+            this.imageNormalPictureBox.TabIndex = 61;
+            this.imageNormalPictureBox.TabStop = false;
+            // 
+            // eventBindingSource
+            // 
+            this.eventBindingSource.DataSource = typeof(FacebookWrapper.ObjectModel.Event);
             // 
             // labelEvents
             // 
@@ -165,24 +187,16 @@
             this.labelEvents.UseCompatibleTextRendering = true;
             this.labelEvents.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.labelEvents_LinkClicked);
             // 
-            // pictureBoxEvent
-            // 
-            this.pictureBoxEvent.Location = new System.Drawing.Point(484, 233);
-            this.pictureBoxEvent.Name = "pictureBoxEvent";
-            this.pictureBoxEvent.Size = new System.Drawing.Size(145, 173);
-            this.pictureBoxEvent.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxEvent.TabIndex = 59;
-            this.pictureBoxEvent.TabStop = false;
-            // 
             // listBoxEvents
             // 
-            this.listBoxEvents.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.listBoxEvents.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.listBoxEvents.DataSource = this.eventBindingSource;
             this.listBoxEvents.DisplayMember = "name";
             this.listBoxEvents.FormattingEnabled = true;
             this.listBoxEvents.Location = new System.Drawing.Point(286, 234);
             this.listBoxEvents.Name = "listBoxEvents";
-            this.listBoxEvents.Size = new System.Drawing.Size(193, 173);
+            this.listBoxEvents.Size = new System.Drawing.Size(178, 173);
             this.listBoxEvents.TabIndex = 58;
             this.listBoxEvents.SelectedIndexChanged += new System.EventHandler(this.listBoxEvents_SelectedIndexChanged);
             // 
@@ -201,13 +215,13 @@
             // 
             // listBoxCheckins
             // 
-            this.listBoxCheckins.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.listBoxCheckins.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
             | System.Windows.Forms.AnchorStyles.Left)));
             this.listBoxCheckins.DisplayMember = "name";
             this.listBoxCheckins.FormattingEnabled = true;
             this.listBoxCheckins.Location = new System.Drawing.Point(22, 439);
             this.listBoxCheckins.Name = "listBoxCheckins";
-            this.listBoxCheckins.Size = new System.Drawing.Size(608, 173);
+            this.listBoxCheckins.Size = new System.Drawing.Size(608, 186);
             this.listBoxCheckins.TabIndex = 56;
             // 
             // pictureBoxFriend
@@ -255,7 +269,7 @@
             // 
             // listBoxNewsFeed
             // 
-            this.listBoxNewsFeed.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.listBoxNewsFeed.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listBoxNewsFeed.DisplayMember = "name";
             this.listBoxNewsFeed.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -263,13 +277,13 @@
             this.listBoxNewsFeed.ItemHeight = 19;
             this.listBoxNewsFeed.Location = new System.Drawing.Point(22, 59);
             this.listBoxNewsFeed.Name = "listBoxNewsFeed";
-            this.listBoxNewsFeed.Size = new System.Drawing.Size(608, 137);
+            this.listBoxNewsFeed.Size = new System.Drawing.Size(593, 137);
             this.listBoxNewsFeed.TabIndex = 51;
             // 
             // buttonPostStatus
             // 
             this.buttonPostStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonPostStatus.Location = new System.Drawing.Point(541, 11);
+            this.buttonPostStatus.Location = new System.Drawing.Point(526, 11);
             this.buttonPostStatus.Name = "buttonPostStatus";
             this.buttonPostStatus.Size = new System.Drawing.Size(75, 23);
             this.buttonPostStatus.TabIndex = 50;
@@ -279,11 +293,11 @@
             // 
             // textBoxStatus
             // 
-            this.textBoxStatus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.textBoxStatus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxStatus.Location = new System.Drawing.Point(113, 14);
             this.textBoxStatus.Name = "textBoxStatus";
-            this.textBoxStatus.Size = new System.Drawing.Size(416, 20);
+            this.textBoxStatus.Size = new System.Drawing.Size(401, 20);
             this.textBoxStatus.TabIndex = 49;
             // 
             // labelPostStatus
@@ -306,9 +320,9 @@
             this.tabFriendStatusFilter.Controls.Add(this.labelFilterFriendsStatuses);
             this.tabFriendStatusFilter.Controls.Add(this.textBoxFilterFriendsStatuses);
             this.tabFriendStatusFilter.Location = new System.Drawing.Point(4, 22);
-            this.tabFriendStatusFilter.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabFriendStatusFilter.Margin = new System.Windows.Forms.Padding(2);
             this.tabFriendStatusFilter.Name = "tabFriendStatusFilter";
-            this.tabFriendStatusFilter.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabFriendStatusFilter.Padding = new System.Windows.Forms.Padding(2);
             this.tabFriendStatusFilter.Size = new System.Drawing.Size(650, 613);
             this.tabFriendStatusFilter.TabIndex = 1;
             this.tabFriendStatusFilter.Text = "Friend Status Filter";
@@ -350,7 +364,7 @@
             // 
             // listBoxFilteredStatuses
             // 
-            this.listBoxFilteredStatuses.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.listBoxFilteredStatuses.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listBoxFilteredStatuses.DisplayMember = "name";
             this.listBoxFilteredStatuses.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -384,7 +398,7 @@
             // 
             // textBoxFilterFriendsStatuses
             // 
-            this.textBoxFilterFriendsStatuses.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.textBoxFilterFriendsStatuses.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxFilterFriendsStatuses.Location = new System.Drawing.Point(214, 16);
             this.textBoxFilterFriendsStatuses.Name = "textBoxFilterFriendsStatuses";
@@ -403,9 +417,9 @@
             this.tabFriendsEvent.Controls.Add(this.textBoxFriendsEventFilter);
             this.tabFriendsEvent.Controls.Add(this.listFriendsEventsFiltered);
             this.tabFriendsEvent.Location = new System.Drawing.Point(4, 22);
-            this.tabFriendsEvent.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabFriendsEvent.Margin = new System.Windows.Forms.Padding(2);
             this.tabFriendsEvent.Name = "tabFriendsEvent";
-            this.tabFriendsEvent.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabFriendsEvent.Padding = new System.Windows.Forms.Padding(2);
             this.tabFriendsEvent.Size = new System.Drawing.Size(650, 613);
             this.tabFriendsEvent.TabIndex = 2;
             this.tabFriendsEvent.Text = "Friends Event Filter";
@@ -510,7 +524,7 @@
             // 
             // textBoxFriendsEventFilter
             // 
-            this.textBoxFriendsEventFilter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.textBoxFriendsEventFilter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxFriendsEventFilter.Location = new System.Drawing.Point(257, 15);
             this.textBoxFriendsEventFilter.Name = "textBoxFriendsEventFilter";
@@ -549,6 +563,43 @@
             this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader3.Width = 65;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.nameTextBox1);
+            this.groupBox1.Controls.Add(this.startTimeDateTimePicker);
+            this.groupBox1.Controls.Add(this.nameTextBox);
+            this.groupBox1.Controls.Add(this.imageNormalPictureBox);
+            this.groupBox1.Location = new System.Drawing.Point(470, 233);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(177, 174);
+            this.groupBox1.TabIndex = 62;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Event details";
+            // 
+            // nameTextBox
+            // 
+            this.nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eventBindingSource, "Name", true));
+            this.nameTextBox.Location = new System.Drawing.Point(75, 19);
+            this.nameTextBox.Name = "nameTextBox";
+            this.nameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.nameTextBox.TabIndex = 62;
+            // 
+            // startTimeDateTimePicker
+            // 
+            this.startTimeDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.eventBindingSource, "StartTime", true));
+            this.startTimeDateTimePicker.Location = new System.Drawing.Point(6, 83);
+            this.startTimeDateTimePicker.Name = "startTimeDateTimePicker";
+            this.startTimeDateTimePicker.Size = new System.Drawing.Size(169, 20);
+            this.startTimeDateTimePicker.TabIndex = 63;
+            // 
+            // nameTextBox1
+            // 
+            this.nameTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eventBindingSource, "Owner.Name", true));
+            this.nameTextBox1.Location = new System.Drawing.Point(75, 45);
+            this.nameTextBox1.Name = "nameTextBox1";
+            this.nameTextBox1.Size = new System.Drawing.Size(100, 20);
+            this.nameTextBox1.TabIndex = 64;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -558,14 +609,15 @@
             this.Controls.Add(this.labelName);
             this.Controls.Add(this.picture_smallPictureBox);
             this.Controls.Add(this.buttonLogin);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormMain";
             this.Text = "A15_Ex02_BenGalili_039711056_AmitPaz_040305179";
             ((System.ComponentModel.ISupportInitialize)(this.picture_smallPictureBox)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabBasicFeatues.ResumeLayout(false);
             this.tabBasicFeatues.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEvent)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imageNormalPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eventBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFriend)).EndInit();
             this.tabFriendStatusFilter.ResumeLayout(false);
             this.tabFriendStatusFilter.PerformLayout();
@@ -576,6 +628,8 @@
             this.groupBoxEventDetails.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEventOfFriend)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGoingFriend)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -600,7 +654,6 @@
         private System.Windows.Forms.LinkLabel linkCheckins;
         private System.Windows.Forms.ListBox listBoxCheckins;
         private System.Windows.Forms.LinkLabel labelEvents;
-        private System.Windows.Forms.PictureBox pictureBoxEvent;
         private System.Windows.Forms.ListBox listBoxEvents;
         private System.Windows.Forms.TextBox textBoxFilterFriendsStatuses;
         private System.Windows.Forms.Label labelFilterFriendsStatuses;
@@ -626,5 +679,11 @@
         private System.Windows.Forms.Label labelEventName;
         private System.Windows.Forms.Button buttonJoinEvent;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox imageNormalPictureBox;
+        private System.Windows.Forms.BindingSource eventBindingSource;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox nameTextBox1;
+        private System.Windows.Forms.DateTimePicker startTimeDateTimePicker;
+        private System.Windows.Forms.TextBox nameTextBox;
     }
 }
