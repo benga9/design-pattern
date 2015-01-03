@@ -24,34 +24,19 @@ namespace A15_Ex02_BenGalili_039711056_AmitPaz_040305179.Log
             }
         }
 
-        /// <summary>
-        /// Method to log information messages
-        /// </summary>
-        /// <param name="message"></param>
-        /// <param name="list"></param>
-        public void LogInfo(string message, params object[] list)
+        public void LogInfo(string i_Message, params object[] i_List)
         {
-            s_ILogger.LogInfo(message, list);
+            s_ILogger.LogInfo(i_Message, i_List);
         }
 
-        /// <summary>
-        /// Method to warning information messages
-        /// </summary>
-        /// <param name="message"></param>
-        /// <param name="list"></param>
-        public void LogWarning(string message, params object[] list)
+        public void LogWarning(string i_Message, params object[] i_List)
         {
-            s_ILogger.LogWarning(message, list);
+            s_ILogger.LogWarning(i_Message, i_List);
         }
 
-        /// <summary>
-        /// Method to error information messages
-        /// </summary>
-        /// <param name="message"></param>
-        /// <param name="list"></param>
-        public void LogError(string message, params object[] list)
+        public void LogError(string i_Message, params object[] i_List)
         {
-            s_ILogger.LogError(message, list);
+            s_ILogger.LogError(i_Message, i_List);
         }
 
         protected static ILogger CreateLogger()
@@ -70,6 +55,5 @@ namespace A15_Ex02_BenGalili_039711056_AmitPaz_040305179.Log
 
             return logger;
         }
-
     }
 }

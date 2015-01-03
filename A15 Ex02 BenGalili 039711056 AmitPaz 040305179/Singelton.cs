@@ -59,7 +59,8 @@ namespace A15_Ex02_BenGalili_039711056_AmitPaz_040305179
                             {
                                 throw new Exception(null, exception);
                             }
-                            if (constructor == null || constructor.IsAssembly) /// Also exclude internal constructors.
+
+                            if (constructor == null || constructor.IsAssembly)
                             {
                                 throw new Exception(string.Format("A private or protected constructor is missing for '{0}'.", typeof(T).Name));
                             }

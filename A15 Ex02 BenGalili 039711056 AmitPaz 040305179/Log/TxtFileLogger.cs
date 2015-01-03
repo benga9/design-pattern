@@ -13,8 +13,6 @@ namespace A15_Ex02_BenGalili_039711056_AmitPaz_040305179.Log
             TxtLogger = new StreamWriter("txtLogger.txt");
         }
 
-        public StreamWriter TxtLogger { get; set; }
-
         public static TxtFileLogger Instance
         {
             get
@@ -23,23 +21,25 @@ namespace A15_Ex02_BenGalili_039711056_AmitPaz_040305179.Log
             }
         }
 
-        public void LogInfo(string message, params object[] list)
+        public StreamWriter TxtLogger { get; set; }
+
+        public void LogInfo(string i_Message, params object[] i_List)
         {
-            string text = "[" + DateTime.Now + "]" + " [INFO:] " + string.Format(message, list);
+            string text = "[" + DateTime.Now + "]" + " [INFO:] " + string.Format(i_Message, i_List);
             TxtLogger.WriteLine(text);
             TxtLogger.Flush();
         }
 
-        public void LogWarning(string message, params object[] list)
+        public void LogWarning(string i_Message, params object[] i_List)
         {
-            string text = "[" + DateTime.Now + "]" + " [WARNING:] " + string.Format(message, list);
+            string text = "[" + DateTime.Now + "]" + " [WARNING:] " + string.Format(i_Message, i_List);
             TxtLogger.WriteLine(text);
             TxtLogger.Flush();
         }
 
-        public void LogError(string message, params object[] list)
+        public void LogError(string i_Message, params object[] i_List)
         {
-            string text = "[" + DateTime.Now + "]" + " [ERROR:] " + string.Format(message, list);
+            string text = "[" + DateTime.Now + "]" + " [ERROR:] " + string.Format(i_Message, i_List);
             TxtLogger.WriteLine(text);
             TxtLogger.Flush();
         }

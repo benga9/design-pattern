@@ -8,12 +8,22 @@ namespace A15_Ex02_BenGalili_039711056_AmitPaz_040305179.Log
 {
     public sealed class EventLogger : ILogger
     {
+        private static string s_LogSource = "Design.Pattern";
+        private static string s_LogName = "Design-Pattern EventLog";
+        private static string s_MachineName = ".";
+
         private EventLogger()
         {
-            ELogger = new EventLog();
-        }
+            if (!EventLog.Exists(s_LogName, s_MachineName))
+            {
+                EventSourceCreationData creationData = new EventSourceCreationData(s_LogSource, s_LogName);
+                creationData.MachineName = s_MachineName;
+                EventLog.CreateEventSource(creationData);
+            }
 
-        public EventLog ELogger { get; set; }
+            ELogger = new EventLog();
+            ELogger.Source = s_LogSource;
+        }
 
         public static EventLogger Instance
         {
@@ -23,21 +33,23 @@ namespace A15_Ex02_BenGalili_039711056_AmitPaz_040305179.Log
             }
         }
 
-        public void LogInfo(string message, params object[] list)
+        public EventLog ELogger { get; set; }
+
+        public void LogInfo(string i_Message, params object[] i_List)
         {
-            string text = string.Format(message, list);
+            string text = string.Format(i_Message, i_List);
             ELogger.WriteEntry(text, EventLogEntryType.Information);
         }
 
-        public void LogWarning(string message, params object[] list)
+        public void LogWarning(string i_Message, params object[] i_List)
         {
-            string text = string.Format(message, list);
+            string text = string.Format(i_Message, i_List);
             ELogger.WriteEntry(text, EventLogEntryType.Warning);
         }
 
-        public void LogError(string message, params object[] list)
+        public void LogError(string i_Message, params object[] i_List)
         {
-            string text = string.Format(message, list);
+            string text = string.Format(i_Message, i_List);
             ELogger.WriteEntry(text, EventLogEntryType.Error);
         }
     }

@@ -32,10 +32,9 @@ namespace A15_Ex02_BenGalili_039711056_AmitPaz_040305179
         {
             try
             {
+                bool isloggedIn = ViewModel.LoginSuccess(r_AppId, r_Permission);
 
-                bool IsloggedIn = ViewModel.LoginSuccess(r_AppId, r_Permission);
-
-                if (IsloggedIn)
+                if (isloggedIn)
                 {
                     fetchUserInfo();
                     Logger.Instance.LogInfo("LoggedIn");
@@ -45,42 +44,40 @@ namespace A15_Ex02_BenGalili_039711056_AmitPaz_040305179
                     MessageBox.Show("Could not Login");
                 }
             }
-
             catch (Facebook.FacebookOAuthException ex)
             {
                 string msg = "Error attempting to login with saved token";
 
                 Logger.Instance.LogError(msg);
                 MessageBox.Show(msg);
-
             }
-
             catch (Exception ex)
             {
                 string msg = "Error attempting to login";
 
                 Logger.Instance.LogError(msg);
                 MessageBox.Show(msg);
-
             }
-
         }
 
         private void fetchUserInfo()
         {
             picture_smallPictureBox.LoadAsync(ViewModel.LoggedInUser.PictureNormalURL);
             labelName.Text = ViewModel.LoggedInUser.Name;
+            Logger.Instance.LogInfo("Fetched user info: {0}", ViewModel.LoggedInUser.Name);
         }
 
         private void buttonPostStatus_Click(object sender, EventArgs e)
         {
             ViewModel.LoggedInUser.PostStatus(textBoxStatus.Text);
+            Logger.Instance.LogInfo("Post status: {0}", textBoxStatus.Text);
         }
 
         private void linkNewsFeed_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             listBoxNewsFeed.Items.Clear();
             new Thread(fetchNewsFeed).Start();
+            Logger.Instance.LogInfo("Fetched user feed");
         }
 
         private void fetchNewsFeed()
@@ -104,15 +101,14 @@ namespace A15_Ex02_BenGalili_039711056_AmitPaz_040305179
                             listBoxNewsFeed.Items.Add(string.Format("[{0}]", post.Type));
                         }
                     }
-                }
-                                            )
-                                    );
+                }));
         }
 
         private void linkFriends_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             listBoxFriends.Items.Clear();
             new Thread(fetchFriends).Start();
+            Logger.Instance.LogInfo("Fetched user friends");
         }
 
         private void fetchFriends()
@@ -125,9 +121,7 @@ namespace A15_Ex02_BenGalili_039711056_AmitPaz_040305179
                     {
                         listBoxFriends.Items.Add(friend);
                     }
-                }
-                                             )
-                                  );
+                }));
         }
 
         private void listBoxFriends_SelectedIndexChanged(object sender, EventArgs e)
@@ -148,6 +142,8 @@ namespace A15_Ex02_BenGalili_039711056_AmitPaz_040305179
                 {
                     picture_smallPictureBox.Image = picture_smallPictureBox.ErrorImage;
                 }
+
+                Logger.Instance.LogInfo("Display friend picture: {0}", selectedFriend.Name);
             }
         }
 
@@ -155,6 +151,7 @@ namespace A15_Ex02_BenGalili_039711056_AmitPaz_040305179
         {
             listBoxCheckins.Items.Clear();
             new Thread(fetchCheckins).Start();
+            Logger.Instance.LogInfo("Fetched user chechins");
         }
 
         private void fetchCheckins()
@@ -167,15 +164,13 @@ namespace A15_Ex02_BenGalili_039711056_AmitPaz_040305179
                     {
                         listBoxCheckins.Items.Add(string.Format("{0}, {1}, {2}", checkin.Place.Name, checkin.Place.Location.City, checkin.CreatedTime));
                     }
-                }
-                                             )
-                                  );
+                }));
         }
 
         private void labelEvents_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            //listBoxEvents.Items.Clear();
             this.eventBindingSource.DataSource = ViewModel.GetUserEvents(ViewModel.LoggedInUser);
+            Logger.Instance.LogInfo("Fetched user event");
         }
 
         private void listBoxEvents_SelectedIndexChanged(object sender, EventArgs e)
@@ -183,7 +178,7 @@ namespace A15_Ex02_BenGalili_039711056_AmitPaz_040305179
             if (listBoxEvents.SelectedItems.Count == 1)
             {
                 Event selectedEvent = listBoxEvents.SelectedItem as Event;
-
+                Logger.Instance.LogInfo("Display event: {0}", selectedEvent.Name);
             }
         }
 
@@ -194,6 +189,7 @@ namespace A15_Ex02_BenGalili_039711056_AmitPaz_040305179
             pictureBoxStatusOwner.Image = null;
 
             List<Status> resStatuses = ViewModel.GetFriendsStatus(textBoxFilterFriendsStatuses.Text);
+            Logger.Instance.LogInfo("Display friends statuses that contains: {0}", textBoxFilterFriendsStatuses.Text);
 
             listBoxFilteredStatuses.Items.AddRange(resStatuses.ToArray());
             this.labelNumberOfStatusesText.Text = string.Format(
@@ -221,6 +217,8 @@ namespace A15_Ex02_BenGalili_039711056_AmitPaz_040305179
                 {
                     picture_smallPictureBox.Image = picture_smallPictureBox.ErrorImage;
                 }
+
+                Logger.Instance.LogInfo("Display status owner picture: {0}", selectedFriend.Name);
             }
         }
 
@@ -236,6 +234,7 @@ namespace A15_Ex02_BenGalili_039711056_AmitPaz_040305179
             List<ListViewItem> resEventList = ViewModel.GetFriendsEvent(textBoxFriendsEventFilter.Text);
 
             listFriendsEventsFiltered.Items.AddRange(resEventList.ToArray());
+            Logger.Instance.LogInfo("Display friends event that contains: {0}", textBoxFriendsEventFilter.Text);
         }
 
         private void listFriendsEventsFiltered_SelectedIndexChanged(object sender, EventArgs e)
@@ -261,6 +260,8 @@ namespace A15_Ex02_BenGalili_039711056_AmitPaz_040305179
                         }
                     }
                 }
+
+                Logger.Instance.LogInfo("Display event ditails picture: {0}", fbEvent.Name);
             }
         }
 
@@ -278,10 +279,12 @@ namespace A15_Ex02_BenGalili_039711056_AmitPaz_040305179
                 if (fbEvent.Privacy.Equals(Event.ePrivacy.Open) && fbEvent.Respond(Event.eRsvpType.Attending))
                 {
                     MessageBox.Show("You have joined this event");
+                    Logger.Instance.LogInfo("{0} joined event: {1}", ViewModel.LoggedInUser.Name, fbEvent.Name);
                 }
                 else
                 {
                     MessageBox.Show("You cannot join this event");
+                    Logger.Instance.LogError("{0} can't join event - {1}, becuse of privacy issues", ViewModel.LoggedInUser.Name, fbEvent.Name);
                 }
             }
         }
