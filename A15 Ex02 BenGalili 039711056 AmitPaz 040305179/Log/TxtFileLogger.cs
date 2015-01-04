@@ -23,21 +23,21 @@ namespace A15_Ex02_BenGalili_039711056_AmitPaz_040305179.Log
 
         public StreamWriter TxtLogger { get; set; }
 
-        public void LogInfo(string i_Message, params object[] i_List)
+        public override void LogInfo(string i_Message, params object[] i_List)
         {
             string text = "[" + DateTime.Now + "]" + " [INFO:] " + string.Format(i_Message, i_List);
             TxtLogger.WriteLine(text);
             TxtLogger.Flush();
         }
 
-        public void LogWarning(string i_Message, params object[] i_List)
+        public override void LogWarning(string i_Message, params object[] i_List)
         {
             string text = "[" + DateTime.Now + "]" + " [WARNING:] " + string.Format(i_Message, i_List);
             TxtLogger.WriteLine(text);
             TxtLogger.Flush();
         }
 
-        public void LogError(string i_Message, params object[] i_List)
+        public override void LogError(string i_Message, params object[] i_List)
         {
             string text = "[" + DateTime.Now + "]" + " [ERROR:] " + string.Format(i_Message, i_List);
             TxtLogger.WriteLine(text);

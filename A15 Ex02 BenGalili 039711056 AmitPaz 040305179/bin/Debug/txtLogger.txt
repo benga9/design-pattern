@@ -1,1 +1,9 @@
-[1/3/2015 9:20:58 PM] [INFO:] App Init
+[1/4/2015 2:37:26 PM] [INFO:] App Init
+[1/4/2015 2:37:29 PM] [INFO:] Logged with account: design.patterns
+[1/4/2015 2:37:29 PM] [INFO:] Fetched user info: Desig Patter
+[1/4/2015 2:37:29 PM] [INFO:] LoggedIn
+[1/4/2015 2:37:45 PM] [INFO:] Fetched user friends
+[1/4/2015 2:37:50 PM] [INFO:] Fetched user event
+[1/4/2015 2:37:53 PM] [INFO:] Display event: deco
+[1/4/2015 2:37:55 PM] [INFO:] Display event: רשימת מוזמנים לאירועים של דיג'יי סטורמי
+[1/4/2015 2:38:47 PM] [INFO:] Display event: eventDel2

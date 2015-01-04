@@ -39,7 +39,7 @@ namespace A15_Ex02_BenGalili_039711056_AmitPaz_040305179
             {
                 LoggedInUser = result.LoggedInUser;
                 Token = result.AccessToken;
-                Logger.Instance.LogInfo("Logged with account: {0}", result.LoggedInUser.UserName);
+                LoggerProxy.Instance.LogInfo("Logged with account: {0}", result.LoggedInUser.UserName);
             }
             else
             {

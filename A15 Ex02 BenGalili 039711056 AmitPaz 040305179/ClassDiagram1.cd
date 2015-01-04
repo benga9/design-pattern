@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="A15_Ex02_BenGalili_039711056_AmitPaz_040305179.FormMain" Collapsed="true">
+    <Position X="5.25" Y="0.75" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>Ihg8DhaD02ECQzFECQHAAmmSM1AwEBAAACAACTQARBY=</HashCode>
+      <FileName>FormMain.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="A15_Ex02_BenGalili_039711056_AmitPaz_040305179.Program" Collapsed="true">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="A15_Ex02_BenGalili_039711056_AmitPaz_040305179.Singleton&lt;T&gt;">
+    <Position X="8.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAQAAAAAAAACA=</HashCode>
+      <FileName>Singelton.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="A15_Ex02_BenGalili_039711056_AmitPaz_040305179.ViewModel" Collapsed="true">
+    <Position X="11" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgFAAgAAAAAAABAAAAAgIAABAAA=</HashCode>
+      <FileName>ViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="A15_Ex02_BenGalili_039711056_AmitPaz_040305179.Log.EventLogger">
+    <Position X="1.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAQAAAAAAKAAAIAAIAAAAQABAAAAAAAA=</HashCode>
+      <FileName>Log\EventLogger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="A15_Ex02_BenGalili_039711056_AmitPaz_040305179.Log.ILogger">
+    <Position X="3.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAIAAAAAAAAAAAAAAAAAAIAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Log\ILogger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="A15_Ex02_BenGalili_039711056_AmitPaz_040305179.Log.TxtFileLogger">
+    <Position X="4.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAAAAAAAAIAAIAAgAQAAAAAAAAAA=</HashCode>
+      <FileName>Log\TxtFileLogger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="A15_Ex02_BenGalili_039711056_AmitPaz_040305179.Properties.Resources" Collapsed="true">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="A15_Ex02_BenGalili_039711056_AmitPaz_040305179.Properties.Settings" Collapsed="true">
+    <Position X="8.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="A15_Ex02_BenGalili_039711056_AmitPaz_040305179.Log.LoggerProxy">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAIABAAAAIAAIAAgAQAAAAAAAAAA=</HashCode>
+      <FileName>Log\LoggerProxy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

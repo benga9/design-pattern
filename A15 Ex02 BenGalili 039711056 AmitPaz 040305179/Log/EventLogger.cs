@@ -35,19 +35,19 @@ namespace A15_Ex02_BenGalili_039711056_AmitPaz_040305179.Log
 
         public EventLog ELogger { get; set; }
 
-        public void LogInfo(string i_Message, params object[] i_List)
+        public override void LogInfo(string i_Message, params object[] i_List)
         {
             string text = string.Format(i_Message, i_List);
             ELogger.WriteEntry(text, EventLogEntryType.Information);
         }
 
-        public void LogWarning(string i_Message, params object[] i_List)
+        public override void LogWarning(string i_Message, params object[] i_List)
         {
             string text = string.Format(i_Message, i_List);
             ELogger.WriteEntry(text, EventLogEntryType.Warning);
         }
 
-        public void LogError(string i_Message, params object[] i_List)
+        public override void LogError(string i_Message, params object[] i_List)
         {
             string text = string.Format(i_Message, i_List);
             ELogger.WriteEntry(text, EventLogEntryType.Error);
